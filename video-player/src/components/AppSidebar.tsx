@@ -39,6 +39,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       icon: LinkIcon,
     },
     {
+      title: "Study",
+      url: "/study",
+      icon: CalendarRange,
+    },
+    {
       title: "Frontend dev",
       url: "/frontend-dev",
       icon: CalendarRange,
@@ -90,14 +95,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton
-                className="hover:!bg-[#e5efff] data-[active=true]:!bg-[#e5efff]"
+                className="hover:!bg-[#e5efff] dark:hover:bg-gray-400 data-[active=true]:!bg-[#e5efff] dark:data-[active=true]:!bg-gray-500 dark:hover:text-gray-800 active:bg-amber-600"
                 isActive={item.url === pathname}
                 asChild
               >
                 <Link
                   to={item.url}
                   className="!text-[16px] !p-[12px_8px_12px_16px] min-h-[48px] rounded-[8px]
-                  !font-semibold
+                  !font-semibold dark:text-gray-100 dark:hover:bg-gray-900
                   "
                 >
                   <item.icon className="!w-5 !h-5 !stroke-2" />

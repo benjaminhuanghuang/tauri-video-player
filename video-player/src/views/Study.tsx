@@ -12,13 +12,12 @@ const playList = [
     url: "https://www.youtube.com/watch?v=IYd1-cPwQCk",
   },
 ];
-const MusicForWork = () => {
+
+const Study = () => {
   const [videoUrl, setVideoUrl] = useState(playList[0].url);
   return (
     <div className="w-full max-w-2xl mx-auto dark:bg-gray-800">
-      <h1 className="text-2xl font-bold mb-4 dark:text-gray-100">
-        Music for Work
-      </h1>
+      <h1 className="text-2xl font-bold mb-4 dark:text-gray-100">Study</h1>
       {playList.map((item) => (
         <button
           key={item.url}
@@ -39,5 +38,4 @@ const MusicForWork = () => {
     </div>
   );
 };
-
-export default MusicForWork;
+export default Study;
