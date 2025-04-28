@@ -1,22 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import { invoke } from "@tauri-apps/api/core";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppLayout from "./AppLayout";
+// Views
+import FrontEndDev from "./views/FrontEndDev";
+import Programming from "./views/Programming";
+import Methodology from "./views/Methodology";
+import MusicForWork from "./views/MusicForWork";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
   return (
-    <main className="bg-amber-50">
-      <div className="bg-amber-400">
-        <h1>Hello</h1>
-      </div>
-    </main>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<AppLayout />}>
+          <Route index element={<MusicForWork />} />
+          <Route path="music-for-work" element={<MusicForWork />} />
+          <Route path="frontend-dev" element={<FrontEndDev />} />
+          <Route path="programming" element={<Programming />} />
+          <Route path="methodology" element={<Methodology />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
