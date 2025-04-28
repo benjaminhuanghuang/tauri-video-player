@@ -16,7 +16,6 @@ import {
   SidebarRail,
   useSidebar,
 } from "./ui/sidebar";
-//import { Separator } from "./ui/separator";
 import { Link, useLocation } from "react-router-dom";
 
 type ItemType = {

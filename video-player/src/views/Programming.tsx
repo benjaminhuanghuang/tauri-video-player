@@ -1,7 +1,14 @@
-import React from "react";
+import VideoPlayer from "@/components/VideoPlayer";
+
+const playList = [
+  {
+    label: "50 Classical Music Masterpieces for Relaxation & the Soul",
+    url: "https://www.youtube.com/watch?v=IYd1-cPwQCk",
+  },
+];
 
 const Programming = () => {
-  return <div>Programming</div>;
+  return <VideoPlayer videoList={playList} caption="Programming" />;
 };
 
 export default Programming;
