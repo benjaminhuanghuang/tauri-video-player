@@ -10,8 +10,8 @@ const Header = () => {
       <div className="w-full flex items-center justify-between !px-4">
         <div>
           <SidebarTrigger
-            className={`-ml-5 cursor-pointer lg:hidden
-               bg-white border transform rotate-180`}
+            className={`-ml-5 cursor-pointer
+               bg-white dark:bg-black border transform rotate-180`}
           />
         </div>
         <ThemeSwitcher />
