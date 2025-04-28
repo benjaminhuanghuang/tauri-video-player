@@ -48,11 +48,18 @@ npx shadcn@latest init
 
 ## exe setup
 
-```sh
+Modify tauri.config.json to fix "failed to bundle project: error running bundle_dmg.sh on mac"
 
+```json
+ "bundle": {
+    "targets": [
+      "app"
+    ],
+ }
+```
+
+```sh
 npm run tauri dev
 
 npm run tauri build --verbose
-
-tauri build
 ```
