@@ -45,3 +45,14 @@ tsconfig.json
 ```sh
 npx shadcn@latest init 
 ```
+
+## exe setup
+
+```sh
+
+npm run tauri dev
+
+npm run tauri build --verbose
+
+tauri build
+```
