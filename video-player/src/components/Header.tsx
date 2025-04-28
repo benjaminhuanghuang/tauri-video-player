@@ -3,7 +3,7 @@ import { Avatar, AvatarFallback } from "./ui/avatar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Separator } from "./ui/separator";
 import { SidebarTrigger } from "./ui/sidebar";
-
+import ThemeSwitcher from "./ThemeSwitcher";
 const Header = () => {
   return (
     <header className="flex min-h-12 pt-3 pb-4 shrink-0 items-center transition-[width,height] ease-linear">
@@ -14,6 +14,7 @@ const Header = () => {
                bg-white border transform rotate-180`}
           />
         </div>
+        <ThemeSwitcher />
         <Popover>
           <PopoverTrigger asChild>
             <button className="flex items-center gap-2 !cursor-pointer">
