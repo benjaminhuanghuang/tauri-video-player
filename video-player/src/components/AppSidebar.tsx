@@ -17,6 +17,7 @@ import {
   useSidebar,
 } from "./ui/sidebar";
 import { Link, useLocation } from "react-router-dom";
+import { listFilesInFolder } from "../utils";
 
 type ItemType = {
   title: string;
