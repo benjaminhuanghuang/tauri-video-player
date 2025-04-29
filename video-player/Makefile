@@ -2,11 +2,11 @@
 
 # Variables
 FRONTEND_BUILD_CMD = npm run build
-TAURI_BUILD_CMD = npm run tauri build
+TAURI_BUILD_CMD = npm run tauri build --debug
 BIN_DIR = bin
 
 # Default target
-all: build copy
+all: clean build copy
 
 # Build the frontend and the tauri application
 build:
@@ -29,4 +29,8 @@ copy:
 	# (Optional) Copy DMG if needed
 	# cp src-tauri/target/release/bundle/dmg/*.dmg $(BIN_DIR)/ || true
 
-# Clean bu
+clean:
+	@echo "Cleaning up..."
+	# rm -rf src-tauri/target
+	# rm -rf src-tauri/target/release/bundle/macos/*.app || true
+	rm -rf $(BIN_DIR)/* || true

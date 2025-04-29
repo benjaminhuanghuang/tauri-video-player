@@ -12,9 +12,10 @@
   "app": {
     "windows": [
       {
-        "title": "video-player",
+        "title": "Video player",
         "width": 1020,
-        "height": 768
+        "height": 768,
+        "devtools": true
       }
     ],
     "security": {
@@ -34,7 +35,10 @@
   },
   "plugins": {
     "fs": {
-      "scope": ["$APPDIR/config"]
+      "permissions": {
+        "read": ["$APP/config"],
+        "readDir": ["$APP/config"]
+      }
     }
   }
 }
