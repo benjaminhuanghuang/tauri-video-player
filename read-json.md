@@ -3,21 +3,12 @@
 In Tauri 2, the core API packages like fs, path, etc. have been moved into individual plugins.
 
 ```sh
-npm install @tauri-apps/plugin-fs @tauri-apps/plugin-fs-extra
-```
+import { readDir, BaseDirectory, readTextFile } from "@tauri-apps/plugin-fs";
 
-Add tauri-plugin-fs to src-tauri/Cargo.toml
-
-```toml
-[dependencies]
-tauri = "2"
-tauri-plugin-fs = "2"
 ```
 
 ```ts
 import { readTextFile } from '@tauri-apps/plugin-fs';
-import { appDir } from '@tauri-apps/plugin-fs/path'; // Different from Tauri v1
-
 
 async function readJsonFile(file: string) {
   const dir = await appDir();
@@ -40,3 +31,12 @@ async function readJsonFile(file: string) {
   }
 }
 ```
+
+## Reference
+
+How to Build a Simple File Browser with Tauri 1.x
+<https://www.youtube.com/watch?v=Azcw1-leCkQ>
+<https://github.com/akoskm/file-browser-tauri>
+
+Files, Filesystem, OPFS and Tauri v2
+<https://www.youtube.com/watch?v=UrlIqYJbsWc>

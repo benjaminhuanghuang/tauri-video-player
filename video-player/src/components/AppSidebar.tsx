@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import {
   CalendarRange,
   ClockIcon,
@@ -17,50 +19,49 @@ import {
   useSidebar,
 } from "./ui/sidebar";
 import { Link, useLocation } from "react-router-dom";
-import { listFilesInFolder } from "../utils";
+import { listFilesInFolder, readJson } from "../utils";
 
+const Icons = {
+  calendar: CalendarRange,
+  clock: ClockIcon,
+  grid: LayoutGrid,
+  link: LinkIcon,
+};
 type ItemType = {
   title: string;
   url: string;
   icon: LucideIcon;
-  separator?: boolean;
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const location = useLocation();
   const { state } = useSidebar();
 
+  // Used to determine the current path and set the active style
   const pathname = location.pathname;
+  const [items, setItems] = useState<ItemType[]>([]);
 
-  const items: ItemType[] = [
-    {
-      title: "Music for work",
-      url: "/music-for-work",
-      icon: LinkIcon,
-    },
-    {
-      title: "Study",
-      url: "/study",
-      icon: CalendarRange,
-    },
-    {
-      title: "Frontend dev",
-      url: "/frontend-dev",
-      icon: CalendarRange,
-    },
-    {
-      title: "Programming",
-      url: "/programming",
-      icon: LayoutGrid,
-      separator: true,
-    },
-
-    {
-      title: "Methodology",
-      url: "/methodology",
-      icon: ClockIcon,
-    },
-  ];
+  useEffect(() => {
+    // Read the config files from the config folder
+    const init = async () => {
+      const configFiles = await listFilesInFolder("config");
+      for (const file of configFiles) {
+        const config = await readJson("config", file);
+        if (config) {
+          const iconKey = config.icon as keyof typeof Icons;
+          setItems((prevItems) => [
+            ...prevItems,
+            {
+              title: config.caption,
+              url: config.url,
+              icon: Icons[iconKey],
+            },
+          ]);
+        }
+      }
+    };
+    init();
+  }, []);
 
   return (
     <Sidebar

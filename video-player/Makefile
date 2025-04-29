@@ -23,6 +23,9 @@ copy:
 	# Copy macOS .app bundle
 	cp -R src-tauri/target/release/bundle/macos/*.app $(BIN_DIR)/ || true
 
+	# Copy entire config folder
+	cp -R config $(BIN_DIR)/ || true
+
 	# (Optional) Copy DMG if needed
 	# cp src-tauri/target/release/bundle/dmg/*.dmg $(BIN_DIR)/ || true
 

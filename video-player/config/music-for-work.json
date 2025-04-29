@@ -1,10 +1,10 @@
 {
-    "caption": "Music for Work",
-    "icon": "music",
-    "playList": [
-        {
-            "title": "Music for Work",
-            "url": "https://www.youtube.com/watch?v=2X8g7j6v4xE"
-        }
-    ]
+  "caption": "Music for Work",
+  "icon": "link",
+  "playList": [
+    {
+      "title": "Music for Work",
+      "url": "https://www.youtube.com/watch?v=2X8g7j6v4xE"
+    }
+  ]
 }
