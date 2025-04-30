@@ -6,7 +6,7 @@ async function listFilesInFolder(folder: string): Promise<string[]> {
     //   baseDir: BaseDirectory.AppData,
     // });
     const entries = await readDir(folder, {
-      baseDir: BaseDirectory.,
+      baseDir: BaseDirectory.Executable,
     });
     const files = entries.filter((e) => e.isFile).map((e) => e.name as string); // 'as string' because entry.name can be undefined
 
