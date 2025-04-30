@@ -2,10 +2,12 @@ import { readDir, BaseDirectory, readTextFile } from "@tauri-apps/plugin-fs";
 
 async function listFilesInFolder(folder: string): Promise<string[]> {
   try {
+    // const entries = await readDir(folder, {
+    //   baseDir: BaseDirectory.AppData,
+    // });
     const entries = await readDir(folder, {
-      baseDir: BaseDirectory.Executable,
+      baseDir: BaseDirectory.,
     });
-
     const files = entries.filter((e) => e.isFile).map((e) => e.name as string); // 'as string' because entry.name can be undefined
 
     return files;
